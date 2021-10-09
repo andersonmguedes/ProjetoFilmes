@@ -8,23 +8,43 @@ const getFilmes = async () => {
     const data = await response.json();  
     
     data.map((filme) =>{
-        lista.insertAdjacentHTML('beforeend', `
-        <div class="col-6">
-        <div class="card mt-2">
-            <div class="card-header">
-                ${filme.nome}
-            </div>
-            <div class="card-body">
-                <p class="card-text">Url Imagem: ${filme.imagem}</p>
-                <p class="card-text">nota: ${filme.nota}</p>
-                <p class="card-text">genero: ${filme.genero}</p>
-                <button type="button" class="btn btn-primary" onclick="putFilme(${filme.id})">Editar</button>
-                <button type="button" class="btn btn-danger" onclick="deleteFilme(${filme.id})">Excluir</button>
-            </div>
-            <div class= "row mt-2">
-        </div>
-    </div>
-      `)
+    //     lista.insertAdjacentHTML('beforeend', `
+    //     <div class="col-6">
+    //     <div class="card mt-2">
+    //         <div class="card-header">
+    //             ${filme.nome}
+    //         </div>
+    //         <div class="card-body">
+    //             <p class="card-text">Url Imagem: ${filme.imagem}</p>
+    //             <p class="card-text">nota: ${filme.nota}</p>
+    //             <p class="card-text">genero: ${filme.genero}</p>
+    //             <button type="button" class="btn btn-primary" onclick="putFilme(${filme.id})">Editar</button>
+    //             <button type="button" class="btn btn-danger" onclick="deleteFilme(${filme.id})">Excluir</button>
+    //         </div>
+    //         <div class= "row mt-2">
+    //     </div>
+    // </div>
+    //   `)
+            lista.insertAdjacentHTML('beforeend', `
+            <div class="col-4">
+            <div class="card mt-2">
+            <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${filme.nome}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">genero: ${filme.genero}</li>
+    <li class="list-group-item">nota: ${filme.nota}</li>
+    <li class="list-group-item">Assistido</li>
+  </ul>
+  <div class="card-body">
+    <button type="button" class="btn btn-primary" onclick="putFilme(${filme.id})">Editar</button>
+    <button type="button" class="btn btn-danger" onclick="deleteFilme(${filme.id})">Excluir</button>
+  </div>
+</div>
+            `)
     })
 }
 getFilmes();
