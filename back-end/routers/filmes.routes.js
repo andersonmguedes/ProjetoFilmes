@@ -4,10 +4,11 @@ const router = express.Router();
 const filmes = [ 
     {
     id: Date.now(),
-    nome: "O Esterminador do futuro",
-    imagem: "Vaga para desenvolvedor front-end com as tecnologias React, HTML, CSS, JS",
+    nome: "Oblivion",
+    imagem: "https://i1.wp.com/astropt.org/blog/wp-content/uploads/2013/07/oblivion-imax-poster.jpg",
     nota: "10",
-    genero: "acao"
+    genero: "Acão/ Ficção Cientifica",
+    ano:"2013"
     },
 ]
 
@@ -30,6 +31,7 @@ router.put('/:id', (req,res) => {
     filmePreCadastrado.imagem = filmeEdit.imagem;
     filmePreCadastrado.nota = filmeEdit.nota;
     filmePreCadastrado.genero = filmeEdit.genero;
+    filmePreCadastrado.ano = filmeEdit.ano;
     
    res.send({
        message:`O seu filme ${filmePreCadastrado.id}foi atualizado com sucesso`,

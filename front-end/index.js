@@ -23,22 +23,25 @@ const getFilmes = async () => {
     //         </div>
     //         <div class= "row mt-2">
     //     </div>
+    //<div class="card" style="width: 18rem;">
+    //<img src="..." class="card-img-top" alt="..."></img>
     // </div>
     //   `)
             lista.insertAdjacentHTML('beforeend', `
             <div class="col-4">
             <div class="card mt-2">
-            <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+            <div class="card" style="width: 100%;">
+  <div stile= "height: 80px">          
+  <img src="${filme.imagem}" class="card-img-top">
+  </div>
   <div class="card-body">
     <h5 class="card-title">${filme.nome}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
+    </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">genero: ${filme.genero}</li>
     <li class="list-group-item">nota: ${filme.nota}</li>
-    <li class="list-group-item">Assistido</li>
-  </ul>
+    <li class="list-group-item">ano: ${filme.ano}</li>
+    </ul>
   <div class="card-body">
     <button type="button" class="btn btn-primary" onclick="putFilme(${filme.id})">Editar</button>
     <button type="button" class="btn btn-danger" onclick="deleteFilme(${filme.id})">Excluir</button>
@@ -56,12 +59,14 @@ const submitForm = async (evento) => {
   let imagem = document.getElementById('imagem');
   let nota = document.getElementById('nota');
   let genero = document.getElementById('genero');
+  let ano = document.getElementById('ano');
 
   const filme = {
     nome: nome.value,
     imagem: imagem.value,
     nota: parseInt(nota.value),
-    genero: genero.value
+    genero: genero.value,
+    ano: parseInt(ano.value)
  }
 
  if (!edicao) {
@@ -98,6 +103,7 @@ const submitForm = async (evento) => {
  imagem.value = '';
  nota.value = '';
  genero.value = '';
+ ano.value ='';
 
  lista.innerHTML = '';
 }
@@ -115,12 +121,14 @@ const putFilme = async (id) => {
   let nomeEl = document.getElementById('nome');
   let imagemEl = document.getElementById('imagem');
   let notaEl = document.getElementById('nota');
-  let generoEl = document.getElementById('genero');  
+  let generoEl = document.getElementById('genero'); 
+  let anoEl = document.getElementById('ano');
 
   nomeEl.value = filme.nome;
   imagemEl.value = filme.imagem;
   notaEl.value = filme.nota;
-  generoEl.value = filme.genero
+  generoEl.value = filme.genero;
+  anoEl.value =filme.ano
 }
 
 
